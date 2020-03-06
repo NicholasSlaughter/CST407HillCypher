@@ -46,14 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DecryptionPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DecryptionPage.Designer.cs">
+      <DependentUpon>DecryptionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncryptionPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncryptionPage.Designer.cs">
+      <DependentUpon>EncryptionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HillCypherHelper.cs" />
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DecryptionPage.resx">
+      <DependentUpon>DecryptionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncryptionPage.resx">
+      <DependentUpon>EncryptionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

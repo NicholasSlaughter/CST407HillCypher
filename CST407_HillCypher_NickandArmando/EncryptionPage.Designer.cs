@@ -368,11 +368,9 @@
             this.Controls.Add(this.labelxOut);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.labelFormula3);
             this.Controls.Add(this.labelFormula2);
             this.Controls.Add(this.labelFormula1);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -390,6 +388,8 @@
             this.Controls.Add(this.labelG);
             this.Controls.Add(this.labelD);
             this.Controls.Add(this.labelA);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label18);
             this.Name = "EncryptionPage";
             this.Text = "EncryptionPage";
             this.Load += new System.EventHandler(this.EncryptionPage_Load);

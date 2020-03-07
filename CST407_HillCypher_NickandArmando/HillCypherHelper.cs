@@ -77,6 +77,7 @@ namespace CST407_HillCypher_NickandArmando
             cipherText = cipherText.ToLower();
             return cipherText;
         }
+
         public bool CheckDeterminant(int det)
         {
             //gets and checks to see if determinent works
@@ -137,6 +138,7 @@ namespace CST407_HillCypher_NickandArmando
 
             //Get Key Matrix
             keyMatrix = new int[3, 3];
+            inverseKey = new int[3, 3];
             GetKeyMatrix(key);
             GetInverseKeyMatrix(key);
 
@@ -320,6 +322,51 @@ namespace CST407_HillCypher_NickandArmando
                 return false;
             else
                 return true;
+        }
+        internal string GetInverseKeyMatrixAsString(string key)
+        {
+            key.ToUpper();
+            int det = 0;
+            int inverseDet = 1;
+            int result = 0;
+            keyMatrix = new int[3,3];
+            GetKeyMatrix(key);
+
+            //find mod inverse of the determinant
+            det = Determinant(det, 3, keyMatrix);
+            det = det % 26;
+            result = (det * inverseDet) % 26;
+            while (result != 1 % 26)
+            {
+                inverseDet++;
+                result = (det * inverseDet) % 26;
+            }
+
+            //gets adjugate matrix to calculate inverse matrix
+            int[,] adjugate = new int[3, 3];
+            GetAdjugate(adjugate, keyMatrix);
+
+            //sets inverse key
+            int [,]temp = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    temp[i, j] = (inverseDet * adjugate[i, j]) % 26;
+                }
+            }
+
+            string invKey = "";
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    invKey += (char)(temp[j, i] + 65);
+                }
+            }
+            keyMatrix = null;
+            invKey.ToList();
+            return invKey;
         }
     }
 }

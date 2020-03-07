@@ -52,19 +52,19 @@ namespace CST407_HillCypher_NickandArmando
                 + key[8].ToString() + plainText[2].ToString();
 
             //Shows The Output of The Formula AKA The Encrypted Text
-            //labelxOut.Text = reducableCipherText[0].ToString();
-            //labelyOut.Text = reducableCipherText[1].ToString();
-            //labelzOut.Text = reducableCipherText[2].ToString();
+            labelxOut.Text = reducableCipherText[0].ToString();
+            labelyOut.Text = reducableCipherText[1].ToString();
+            labelzOut.Text = reducableCipherText[2].ToString();
 
             ////Shows The Complete Cipher Text
-            //labelCipher.Text = cipherText.ToString();
+            labelCipher.Text = cipherText.ToString();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
             //Reduces The String To Show The Next Calculation
             reducablePlainText = reducablePlainText.Remove(0, 3);
-            //reducableCipherText = reducableCipherText.Remove(0, 3);
+            reducableCipherText = reducableCipherText.Remove(0, 3);
 
             if (reducablePlainText.Length != 0)
             {
@@ -85,9 +85,9 @@ namespace CST407_HillCypher_NickandArmando
                     + key[8].ToString() + reducablePlainText[2].ToString();
 
                 //Shows The Output of The Formula AKA The Encrypted Text
-                //labelxOut.Text = reducableCipherText[0].ToString();
-                //labelyOut.Text = reducableCipherText[1].ToString();
-                //labelzOut.Text = reducableCipherText[2].ToString();
+                labelxOut.Text = reducableCipherText[0].ToString();
+                labelyOut.Text = reducableCipherText[1].ToString();
+                labelzOut.Text = reducableCipherText[2].ToString();
             }
             else //If All The Calculations Have Been Shown Restart From Beginning
             {
@@ -111,9 +111,9 @@ namespace CST407_HillCypher_NickandArmando
                     + key[8].ToString() + reducablePlainText[2].ToString();
 
                 //Shows The Output of The Formula AKA The Encrypted Text
-                //labelxOut.Text = reducableCipherText[0].ToString();
-                //labelyOut.Text = reducableCipherText[1].ToString();
-                //labelzOut.Text = reducableCipherText[2].ToString();
+                labelxOut.Text = reducableCipherText[0].ToString();
+                labelyOut.Text = reducableCipherText[1].ToString();
+                labelzOut.Text = reducableCipherText[2].ToString();
             }
         }
     }

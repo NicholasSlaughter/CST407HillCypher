@@ -24,8 +24,7 @@ namespace CST407_HillCypher_NickandArmando
             InitializeComponent();
             this.cipherText = cipherText;
             this.key = key;
-            //inverseKey = helper.GetInverseKeyMatrix(key);
-            inverseKey = "ABCDEFGHI";
+            inverseKey = helper.GetInverseKeyMatrixAsString(key);
             plainText = helper.Decryption(cipherText, key);
             reducableCipherText = cipherText;
             reducablePlainText = plainText;
@@ -65,18 +64,18 @@ namespace CST407_HillCypher_NickandArmando
                 + inverseKey[8].ToString() + cipherText[2].ToString();
 
             //Shows The Output of The Formula AKA The Encrypted Text
-            //labelxOut.Text = reducablePlainText[0].ToString();
-            //labelyOut.Text = reducablePlainText[1].ToString();
-            //labelzOut.Text = reducablePlainText[2].ToString();
+            labelxOut.Text = reducablePlainText[0].ToString();
+            labelyOut.Text = reducablePlainText[1].ToString();
+            labelzOut.Text = reducablePlainText[2].ToString();
 
-            ////Shows The Complete Plain Text
-            //labelPlain.Text = plainText.ToString();
+            //Shows The Complete Plain Text
+            labelPlain.Text = plainText.ToString();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
             //Reduces The String To Show The Next Calculation
-            //reducablePlainText = reducablePlainText.Remove(0, 3);
+            reducablePlainText = reducablePlainText.Remove(0, 3);
             reducableCipherText = reducableCipherText.Remove(0, 3);
 
             if (reducableCipherText.Length != 0)
@@ -98,9 +97,9 @@ namespace CST407_HillCypher_NickandArmando
                     + inverseKey[8].ToString() + reducableCipherText[2].ToString();
 
                 //Shows The Output of The Formula AKA The Encrypted Text
-                //labelxOut.Text = reducablePlainText[0].ToString();
-                //labelyOut.Text = reducablePlainText[1].ToString();
-                //labelzOut.Text = reducablePlainText[2].ToString();
+                labelxOut.Text = reducablePlainText[0].ToString();
+                labelyOut.Text = reducablePlainText[1].ToString();
+                labelzOut.Text = reducablePlainText[2].ToString();
             }
             else //If All The Calculations Have Been Shown Restart From Beginning
             {
@@ -124,9 +123,9 @@ namespace CST407_HillCypher_NickandArmando
                     + inverseKey[8].ToString() + reducableCipherText[2].ToString();
 
                 //Shows The Output of The Formula AKA The Encrypted Text
-                //labelxOut.Text = reducablePlainText[0].ToString();
-                //labelyOut.Text = reducablePlainText[1].ToString();
-                //labelzOut.Text = reducablePlainText[2].ToString();
+                labelxOut.Text = reducablePlainText[0].ToString();
+                labelyOut.Text = reducablePlainText[1].ToString();
+                labelzOut.Text = reducablePlainText[2].ToString();
             }
         }
     }

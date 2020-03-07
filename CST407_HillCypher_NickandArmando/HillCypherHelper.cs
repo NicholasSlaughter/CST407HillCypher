@@ -35,7 +35,7 @@ namespace CST407_HillCypher_NickandArmando
             
 
             //Seperates plaintext into sections of 3 and turns them into values of 0 to 25
-            int sections = plainText.Length % 3;
+            int sections = plainText.Length / 3;
             int[,] messageVector = new int[3, sections];
             byte[] ASCIIValues = Encoding.ASCII.GetBytes(plainText);
             int count = 0;

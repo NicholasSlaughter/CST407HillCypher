@@ -91,12 +91,14 @@
             this.labelInverseG = new System.Windows.Forms.Label();
             this.labelInverseH = new System.Windows.Forms.Label();
             this.labelInverseI = new System.Windows.Forms.Label();
+            this.ShowMathButton = new System.Windows.Forms.CheckBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NextButton
             // 
             this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NextButton.Location = new System.Drawing.Point(666, 453);
+            this.NextButton.Location = new System.Drawing.Point(666, 444);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(122, 51);
             this.NextButton.TabIndex = 61;
@@ -185,7 +187,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(588, 144);
+            this.label22.Location = new System.Drawing.Point(574, 144);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(76, 113);
             this.label22.TabIndex = 52;
@@ -664,11 +666,34 @@
             this.labelInverseI.TabIndex = 85;
             this.labelInverseI.Text = "ii";
             // 
+            // ShowMathButton
+            // 
+            this.ShowMathButton.AutoSize = true;
+            this.ShowMathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowMathButton.Location = new System.Drawing.Point(12, 455);
+            this.ShowMathButton.Name = "ShowMathButton";
+            this.ShowMathButton.Size = new System.Drawing.Size(191, 40);
+            this.ShowMathButton.TabIndex = 86;
+            this.ShowMathButton.Text = "Show Math";
+            this.ShowMathButton.UseVisualStyleBackColor = true;
+            this.ShowMathButton.CheckedChanged += new System.EventHandler(this.ShowMathButton_CheckedChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(668, 144);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(76, 113);
+            this.label25.TabIndex = 88;
+            this.label25.Text = "]";
+            // 
             // DecryptionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 507);
+            this.Controls.Add(this.ShowMathButton);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.labelInverseI);
             this.Controls.Add(this.labelInverseH);
@@ -732,8 +757,9 @@
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
+            this.Controls.Add(this.label25);
             this.Name = "DecryptionPage";
-            this.Text = "DecryptionPage";
+            this.Text = "Hill Cypher";
             this.Load += new System.EventHandler(this.DecryptionPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -805,5 +831,7 @@
         private System.Windows.Forms.Label labelInverseG;
         private System.Windows.Forms.Label labelInverseH;
         private System.Windows.Forms.Label labelInverseI;
+        private System.Windows.Forms.CheckBox ShowMathButton;
+        private System.Windows.Forms.Label label25;
     }
 }

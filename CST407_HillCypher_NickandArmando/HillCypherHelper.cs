@@ -200,6 +200,23 @@ namespace CST407_HillCypher_NickandArmando
                 }
             }
         }
+        public int[,] GetDisplayedKeyMatrix(string key)
+        {
+            //sets key matrix with values between 0 and 25
+            byte[] ASCIIValues = Encoding.ASCII.GetBytes(key);
+            int count = 0;
+            int[,] temp = new int[3, 3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    temp[i, j] = ASCIIValues[count] - 65;
+                    count++;
+                }
+            }
+            return temp;
+        }
         public void GetInverseKeyMatrix(string key)
         {
             int det = 0;
@@ -229,6 +246,38 @@ namespace CST407_HillCypher_NickandArmando
                     inverseKey[i, j] = (inverseDet * adjugate[i, j]) % 26;
                 }
             }
+        }
+        public int[,] GetDisplayedInverseKeyMatrix(string key, int[,] keyMatrix)
+        {
+            int det = 0;
+            int inverseDet = 1;
+            int result = 0;
+
+            //find mod inverse of the determinant
+            det = Determinant(det, 3, keyMatrix);
+            det = det % 26;
+            result = (det * inverseDet) % 26;
+            while (result != 1 % 26)
+            {
+                inverseDet++;
+                result = (det * inverseDet) % 26;
+            }
+
+            //gets adjugate matrix to calculate inverse matrix
+            int[,] adjugate = new int[3, 3];
+            GetAdjugate(adjugate, keyMatrix);
+
+            //sets inverse key
+            int[,] temp = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    temp[i, j] = (inverseDet * adjugate[i, j]) % 26;
+                }
+            }
+
+            return temp;
         }
         public void GetAdjugate(int[,] Adjugate, int[,] keyMatrix)
         {
@@ -272,9 +321,42 @@ namespace CST407_HillCypher_NickandArmando
             }
 
         }
-        public void EncryptHelper(int [,]keyMatrix)
+        public int[,] GetDisplayedMessageVector(int [,]keyMatrix, string plainText)
         {
+            int sections = plainText.Length / 3;
+            int[,] messageVector = new int[3, sections];
+            plainText = plainText.ToUpper();
+            byte[] ASCIIValues = Encoding.ASCII.GetBytes(plainText);
+            int count = 0;
 
+            for (int i = 0; i < sections; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    messageVector[j, i] = ASCIIValues[count] - 65;
+                    count++;
+                }
+            }
+
+            return messageVector;
+        }
+
+        public int[,] GetDisplayedCipherMatrix(int[,] keyMatrix, int[,] messageVector, int sections, string plainText)
+        {
+            int[,] cipherMatrix = new int[plainText.Length, sections];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < sections; j++)
+                {
+                    cipherMatrix[i, j] = 0;
+                    for (int k = 0; k < 3; k++)
+                    {
+                        cipherMatrix[i, j] += keyMatrix[i, k] * messageVector[k, j];
+                    }
+                    cipherMatrix[i, j] = cipherMatrix[i, j] % 26;
+                }
+            }
+            return cipherMatrix;
         }
 
         public string PlainTextPadding(string plainText)

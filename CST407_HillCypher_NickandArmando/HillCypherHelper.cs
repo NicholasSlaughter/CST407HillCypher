@@ -276,7 +276,7 @@ namespace CST407_HillCypher_NickandArmando
                     temp[i, j] = (inverseDet * adjugate[i, j]) % 26;
                 }
             }
-
+            //returns temp
             return temp;
         }
         public void GetAdjugate(int[,] Adjugate, int[,] keyMatrix)

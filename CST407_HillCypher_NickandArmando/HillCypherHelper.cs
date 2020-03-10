@@ -87,6 +87,16 @@ namespace CST407_HillCypher_NickandArmando
             else
                 return false;
         }
+
+        public bool HomePageCheckDet(int det, int[,] keyMatrix)
+        {
+            //gets and checks to see if determinent works
+            det = Determinant(det, 3, keyMatrix);
+            if (det == 0 || (det % 13) == 0 || (det % 2) == 0)
+                return true;
+            else
+                return false;
+        }
         public int Determinant(int det, int length, int[,] matrix)
         {
             //recursive function to get determinant
@@ -400,7 +410,7 @@ namespace CST407_HillCypher_NickandArmando
         }
         public bool KeyChecker(string keyText)
         {
-            if (keyText.Count() < 1 && keyText.Count() > 9)
+            if (keyText.Count() < 1 || keyText.Count() > 9)
                 return false;
             else
                 return true;

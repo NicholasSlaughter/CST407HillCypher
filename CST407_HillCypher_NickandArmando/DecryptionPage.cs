@@ -57,6 +57,7 @@ namespace CST407_HillCypher_NickandArmando
         private void DecryptionPage_Load(object sender, EventArgs e)
         {
             label25.Visible = false;
+            label5.Visible = false;
 
             //View The Key Matrix
             labelA.Text = key[0].ToString(); labelB.Text = key[1].ToString(); labelC.Text = key[2].ToString();
@@ -229,7 +230,10 @@ namespace CST407_HillCypher_NickandArmando
             if (ShowMathButton.Checked)
             {
                 label25.Visible = true;
+                label5.Visible = true;
+
                 label22.Visible = false;
+                label26.Visible = false;
 
                 //View The Key Matrix As Numbers
                 labelA.Text = keyMatrixNumbers[0,0].ToString(); labelB.Text = keyMatrixNumbers[0,1].ToString(); labelC.Text = keyMatrixNumbers[0,2].ToString();
@@ -270,7 +274,10 @@ namespace CST407_HillCypher_NickandArmando
             else
             {
                 label25.Visible = false;
+                label5.Visible = false;
+
                 label22.Visible = true;
+                label26.Visible = true;
 
                 //View The Key Matrix
                 labelA.Text = key[0].ToString(); labelB.Text = key[1].ToString(); labelC.Text = key[2].ToString();
